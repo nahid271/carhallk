@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Surfaces */
+    --background: 210 40% 98%;          /* #F8FAFC */
+    --foreground: 222 47% 11%;          /* #1E293B */
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Brand */
+    --primary: 217 91% 60%;             /* #2563EB blue — trust */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 217 91% 95%;           /* tinted blue */
+    --secondary-foreground: 217 91% 24%;
+
+    /* CTA — orange for primary action buttons (carsales-style) */
+    --cta: 21 90% 53%;                  /* #F97316 */
+    --cta-foreground: 0 0% 100%;
+
+    /* Accent / Success / Destructive */
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+    --success: 142 71% 35%;             /* deep green for Verified */
+    --success-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Neutrals */
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.625rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Bangla locale uses Hind Siliguri body font */
+  html[lang="bn"] body {
+    font-family: var(--font-hind-siliguri), system-ui, sans-serif;
+  }
+
+  /* Tabular numbers for prices */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer utilities {
+  /* Focus ring used across all interactive elements */
+  .focus-ring {
+    @apply outline-none ring-offset-2 ring-offset-background focus-visible:ring-2 focus-visible:ring-ring;
+  }
+}
